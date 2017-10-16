@@ -76,11 +76,8 @@ $$x_{n1}={newrapxn}={thisnewrapxn}$$
 	#endfordoc
 	return newtonraphson
 
-
-markdown(r'''
-''')
 sqrt = NewtonRaphson(x**2-a,x,a)
 sqrt(2,solution = sp.sqrt(2))
-aho = NewtonRaphson(a**(x),x,a)
-aho(2)
+pow = NewtonRaphson(a**(x),x,a)
+pow(2)
 

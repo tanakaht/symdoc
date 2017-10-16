@@ -5,9 +5,6 @@ layout: page
 
 
 
-
-
-
 ##Newton-Rapshon法による$F(x):=- a + x^{2}=0$の求解
 Newton-Rapshon法を用いて、
 方程式$F()=- a + x^{2}=0$の近似解を求めます。\n
