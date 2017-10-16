@@ -54,7 +54,7 @@ $x_0={xstart}$として、${solution}≈x_{i}={xloop}$が近似解として得�
 			if notfind:
 				markdown(r'''
 $x_0={xstart}$としたところ、
-NewtonRapshon法で収束しませんでした。
+収束しませんでした。
 ''',
 				**locals())
 		#endfordoc
