@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>How to calcurate sqrt using NewtonRapshon method</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">How to calcurate sqrt using NewtonRapshon method</h1>
+</div>
+<h2 id="newton-rapshon法によるfx--a-x20の求解">Newton-Rapshon法による<span class="math inline">\(F(x):=- a + x^{2}=0\)</span>の求解</h2>
+<p>Newton-Rapshon法を用いて、 方程式<span class="math inline">\(F()=- a + x^{2}=0\)</span>の近似解を求めます。以下の漸化式による数列は<span class="math inline">\(F(x)=0\)</span>の解<span class="math inline">\(α\)</span>に収束します。 <span class="math display">\[x_{n+1}=x_{n} - \frac{F{\left (x_{n} \right )}}{\frac{d}{d x_{n}} F{\left (x_{n} \right )}}=\frac{a + x_{n}^{2}}{2 x_{n}}\]</span></p>
+<p><span class="math inline">\(F(x)=x^{2} - 2\)</span>とすると、漸化式は <span class="math display">\[x_{n+1}=\frac{x_{n}^{2} + 2}{2 x_{n}}\]</span></p>
+<p><span class="math inline">\(x_0=1\)</span>として、<span class="math inline">\(\sqrt{2}≈x_6=1.414213562373095\)</span>が近似解として得られます。</p>
+<h2 id="newton-rapshon法によるfxax0の求解">Newton-Rapshon法による<span class="math inline">\(F(x):=a^{x}=0\)</span>の求解</h2>
+<p>Newton-Rapshon法を用いて、 方程式<span class="math inline">\(F()=a^{x}=0\)</span>の近似解を求めます。以下の漸化式による数列は<span class="math inline">\(F(x)=0\)</span>の解<span class="math inline">\(α\)</span>に収束します。 <span class="math display">\[x_{n+1}=x_{n} - \frac{F{\left (x_{n} \right )}}{\frac{d}{d x_{n}} F{\left (x_{n} \right )}}=x_{n} - \frac{1}{\log{\left (a \right )}}\]</span></p>
+<p><span class="math inline">\(F(x)=2^{x}\)</span>とすると、漸化式は <span class="math display">\[x_{n+1}=x_{n} - 1.44269504088896\]</span></p>
+<p><span class="math inline">\(x_0=1\)</span>としたところ、 NewtonRapshon法で収束しませんでした。</p>
+</body>
+</html>
