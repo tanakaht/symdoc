@@ -22,15 +22,15 @@ def NewtonRaphson(f,x,*args):
 	newrap = x - F(x)/sp.diff(F(x),x)
 	thisnewrap = sp.simplify(newrap.subs(F(x),f).doit())
 	calnewrap = sp.lambdify((x,*args),thisnewrap)
-	fanc = sp.lambdify((x,*args),f)
-	def newtonraphson(*args,xstart=1,eps = 10**(-20),solution='α'):
+	fanc = sp.simplify(f)
+	def newtonraphson(*args2,xstart=1,eps = 10**(-20),solution='α'):
 		xloop = xstart
 		xback = xstart-1
 		i = 0
 		notfind = False
 		while abs(xloop - xback) > eps:
 			xback = xloop
-			xloop = calnewrap(xloop,*args)
+			xloop = calnewrap(xloop,*args2)
 			i = i+1
 			if i>100:
 				print('収束しませんでした')
@@ -38,12 +38,12 @@ def NewtonRaphson(f,x,*args):
 				break
 		#startfordoc
 		if M.cmdline.symdoc:
-			fancargs = fanc(x,*args)
+			fancargs = fanc.subs(*args,*args2)
 			xn, n1 = sp.var('x_n {n+1}')
-			calnewrapxnargs = calnewrap(x,*args).subs(x,xn)
+			thisnewrapxnargs = thisnewrap.subs(*args,*args2).subs(x,xn)
 			markdown(r'''
 $F(x)={fancargs}$とすると、漸化式は
-$$x_{n1}={calnewrapxnargs}$$
+$$x_{n1}={thisnewrapxnargs}$$
 ''',
 			**locals())
 			if notfind ==False:
@@ -68,7 +68,7 @@ $x_0={xstart}$としたところ、
 		markdown(r'''
 ##Newton-Rapshon法による${F}(x):={f}=0$の求解
 Newton-Rapshon法を用いて、
-方程式${F}()={f}=0$の近似解を求めます。\n
+方程式${F}(x)={f}=0$の近似解を求めます。\n
 以下の漸化式による数列は${F}(x)=0$の解$α$に収束します。
 $$x_{n1}={newrapxn}={thisnewrapxn}$$
 ''',
@@ -81,3 +81,5 @@ sqrt(2,solution = sp.sqrt(2))
 pow = NewtonRaphson(a**(x),x,a)
 pow(2)
 
+ff = NewtonRaphson(x/sp.tan(x)-1/a,x,a)
+ff(1,xstart = 5)
