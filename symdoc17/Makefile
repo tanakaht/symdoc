@@ -1,9 +1,9 @@
-all: sqrt.html
+all: kk3.html
 
 clean:
-	rm sqrt.md sqrt.html
+	rm kk3.md kk3.html
 	rm -rf __pycache__
 
-sqrt.html: sqrt.py
-	python sqrt.py --symdoc
-	pandoc -t html -o sqrt.html --standalone --mathjax sqrt.md
+kk3.html: kk3.py
+	python kk3.py --symdoc
+	pandoc -t html -o kk3.html --standalone --mathjax kk3.md
